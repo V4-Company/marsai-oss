@@ -1,0 +1,31 @@
+name: Something does not work
+description: A skill, an agent, the installer or the site behaves differently from what its text says.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what came out. Paste the command or the slash command you used.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Which skill, agent or command
+      placeholder: /marsai-dev:to-spec
+  - type: dropdown
+    id: app
+    attributes:
+      label: Coding agent
+      options: [Claude Code, Codex, OpenCode, Other]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: MarsAI version
+      description: "`claude plugin list`, or `npx --yes github:V4-Company/marsai-oss status`"
+  - type: markdown
+    attributes:
+      value: A security problem does not go here. See SECURITY.md.

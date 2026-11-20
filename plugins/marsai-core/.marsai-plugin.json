@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "targets": ["claude", "codex", "cursor", "opencode"],
+  "legacySkills": ["babysit-pr", "create-pr", "git-commit", "open-pr", "using-marsai"]
+}

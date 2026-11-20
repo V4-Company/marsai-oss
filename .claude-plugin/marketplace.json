@@ -1,0 +1,47 @@
+{
+  "name": "marsai-oss",
+  "description": "MarsAI: the development workflow V4 Company uses to build with AI agents. marsai-core is the base everyone installs; marsai-dev holds the code flow and brings the core as a dependency.",
+  "owner": {
+    "name": "V4 Company",
+    "url": "https://github.com/V4-Company"
+  },
+  "version": "5.8.0",
+  "renames": {
+    "marsai-default": "marsai-core",
+    "marsai-dev-team": "marsai-dev"
+  },
+  "plugins": [
+    {
+      "name": "marsai-core",
+      "source": "./plugins/marsai-core",
+      "category": "core",
+      "tags": [
+        "required",
+        "core"
+      ]
+    },
+    {
+      "name": "marsai-dev",
+      "source": "./plugins/marsai-dev",
+      "category": "engineering",
+      "tags": [
+        "engineering",
+        "flow"
+      ]
+    },
+    {
+      "name": "marsai-extras",
+      "source": "./plugins/marsai-extras",
+      "category": "productivity",
+      "tags": [
+        "optional",
+        "matt-pocock",
+        "cathryn-lavery",
+        "lauren-tan",
+        "theo-browne",
+        "diagrams",
+        "extras"
+      ]
+    }
+  ]
+}

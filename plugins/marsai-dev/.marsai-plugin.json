@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "targets": ["claude", "codex", "cursor", "opencode"],
+  "group": {
+    "id": "desenvolvimento",
+    "aliases": ["development"],
+    "label": { "en": "Development", "pt-BR": "Desenvolvimento" },
+    "description": {
+      "en": "The code flow: demo, spec, implementation with TDD and review",
+      "pt-BR": "O fluxo de código: demo, spec, implementação com TDD e review"
+    }
+  },
+  "legacySkills": ["feature-flow", "tdd", "using-dev-team"]
+}

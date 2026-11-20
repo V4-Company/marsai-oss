@@ -1,0 +1,34 @@
+MarsAI
+Copyright 2026 V4 Company
+
+This product includes material adapted from:
+
+- Ring, by Lerian Studio, licensed under the Apache License, Version 2.0.
+  This repository started in April 2026 as an adaptation of Ring, whose
+  original repository is no longer public. Most of it has been rewritten since, and
+  what remains is distributed under the same license.
+
+- The skills of Matt Pocock (https://github.com/mattpocock/skills), licensed
+  under the MIT License. The flow follows his design and several skills were
+  copied and adapted. The list of derived skills and the license text are in
+  plugins/marsai-core/THIRD-PARTY-NOTICES.md and
+  plugins/marsai-dev/THIRD-PARTY-NOTICES.md and
+  plugins/marsai-extras/THIRD-PARTY-NOTICES.md.
+
+Diagram Design: Copyright (c) 2025 Cathryn Lavery, MIT licensed.
+Adapted as marsai-extras:marsai-diagram from version 2.6.76, commit
+fda20afe92c69ba5f02fe1dee48c7b2502f004fe. Full license and modifications:
+plugins/marsai-extras/skills/marsai-diagram/LICENSE.txt and NOTICE.md.
+
+pstack: Copyright (c) 2026 Lauren Tan, MIT licensed.
+Adapted as marsai-extras:in-your-own-words from version 0.15.23, commit
+dbf49813a39c1a5389c5e28cb8e4c1c2379e2454. Full license:
+plugins/marsai-extras/skills/in-your-own-words/LICENSE.txt.
+The shape of marsai-core:marsai-mode comes from poteto-mode, version
+0.15.24, commit 1e5c90a4b6f249917bd21fe361b3a2a7deb741b8. Credit and
+license: plugins/marsai-core/THIRD-PARTY-NOTICES.md.
+
+tstack: Copyright (c) 2026 Theo Browne, MIT licensed.
+Adapted as marsai-extras:sol-loop, full-send and full-stop from commit
+1085050f3baed1ac724caa4a8166145fb2ac88af. Full license:
+plugins/marsai-extras/skills/sol-loop/LICENSE.txt.

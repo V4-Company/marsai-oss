@@ -1,0 +1,24 @@
+name: An idea for the flow
+description: A step that could work better, a skill that is missing, something you changed in your fork and worked.
+labels: [idea]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What happens today, to whom, and what it costs. An example from real work helps more than a description.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What you would change. If you already tried it, say what came out.
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Who is it for
+      description: What is specific to one team fits better in a team pack or in a fork.
+      options: [Everyone who uses the flow, My team, I am not sure]
+    validations:
+      required: true

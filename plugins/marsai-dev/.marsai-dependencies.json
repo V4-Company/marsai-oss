@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "mcp": [
+    {
+      "id": "linear",
+      "skills": ["to-spec", "to-tickets", "implement-spec", "implement", "code-review"],
+      "required": false
+    }
+  ]
+}

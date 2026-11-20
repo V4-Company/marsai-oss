@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/pre-tool-use.py\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'MarsAI: production code changes go through marsai-dev:implement-spec (a spec with slices) or marsai-dev:implement (a single slice): implementer first, then review. The flow map is marsai-core:using-marsai. Talk to the person in their language; write specs, tickets, pull requests and commits in the language the repository already uses.'"
+          }
+        ]
+      }
+    ]
+  }
+}

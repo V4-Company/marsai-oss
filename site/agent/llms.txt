@@ -1,0 +1,34 @@
+# MarsAI
+
+> The development workflow V4 Company uses to build with AI agents, published as open source (Apache 2.0). Skills, agents and gates that take a change from problem to production: demo first, hardening after. Two plugins, `marsai-core` and `marsai-dev`, for Claude Code, Codex, Cursor and OpenCode.
+
+The site is a single-page application. The pages below are plain text and say the same things.
+
+## For an agent
+
+- [Install instructions]({{site}}/install.md): how to install MarsAI in the coding agent you are running in, and what to tell the person afterward
+- [First-use interview]({{site}}/onboarding.md): adapt MarsAI to the person's role, project, architecture and team before the first task
+- [The flow]({{site}}/flow.md): the map of the flow, as the agent reads it (the `using-marsai` skill)
+- [Glossary]({{site}}/glossary.md): the terms of the flow, in English and in Brazilian Portuguese
+
+## Two ways to adopt it
+
+- Start fast: install from `{{repo}}` as plugins (Claude Code) or with the installer (Codex, Cursor, OpenCode), following the install instructions above. Enough for one repository or one person.
+- Scale to a team across many repositories: run `/marsai-core:home-repo` to set up a Home Repo where every session starts, with a pointer to each repository, a wiki, the team's Standards and skills in `.claude/`, updated with `git pull`. This is how V4 Company runs MarsAI today, with about 40 people across 80+ repositories ([ADR 0019](https://github.com/{{repo}}/blob/main/docs/adr/0019-sessions-start-in-the-home-repo.md)).
+
+## The skills
+
+{{skills}}
+
+## Source
+
+- [Repository](https://github.com/{{repo}})
+- [Decision records](https://github.com/{{repo}}/tree/main/docs/adr): why the flow works the way it does
+- [Contributing](https://github.com/{{repo}}/blob/main/CONTRIBUTING.md)
+
+## For a person
+
+- [Home]({{site}}/) · [em português]({{site}}/pt)
+- [Manifesto]({{site}}/manifesto): the thesis and the ten principles
+- [The interactive map]({{site}}/map)
+- [Make it yours]({{site}}/make-it-yours): what is V4's and how to swap it for what is yours

@@ -1,0 +1,316 @@
+// The manifesto: why the flow is the way it is. Same inline markup as skills.mjs.
+//
+// This is the public edition. Internal financial figures stay out of it.
+import { vision } from './manifesto-vision.mjs';
+import { essay } from './manifesto-essay.mjs';
+
+export const manifesto = {
+  hero: {
+    eyebrow: 'Technology and product manifesto',
+    title: ['AI writes the code.', 'You judge.'],
+    byline: 'Guilherme Lippert, CPTO of V4 Company · October 2026',
+    shift: [
+      { label: 'Cost of execution', value: 'fell', dir: 'down' },
+      { label: 'Cost of judgment', value: 'unchanged', dir: 'same' },
+    ],
+    lead: 'Writing code got cheap. Deciding what to build and making sure it is good is still expensive. That is where we want you.',
+  },
+
+  sections: essay.chapters.flatMap(({ id, nav }, i) => [
+    { id, label: nav },
+    ...(i === 0 ? [{ id: 'principles', label: '10 principles' }] : []),
+  ]),
+
+  thesis: {
+    kicker: '01 · The thesis',
+    title: 'The bottleneck moved',
+    lead: 'The narrow part of the pipe is no longer the code.',
+    stages: ['Knowing what to build', 'Writing code', 'Making sure it is good'],
+    before: { label: 'Before', narrow: [1] },
+    now: { label: 'Now', narrow: [0, 2], note: 'the agent does it' },
+    narrowTag: 'bottleneck',
+    motto: "Don't outsource the thinking. Scale it.",
+    cards: [
+      { tag: 'Outsource', title: '"The AI already thought for me."', text: 'You accept the answer without judging it. It is the biggest risk we have.', tone: 'bad' },
+      { tag: 'Scale', title: 'Take the problem to the agent early', text: 'Give it the problem, not the solution. If it solves it, you saved your brainpower. If it fails, that is where thinking pays off.', tone: 'good' },
+    ],
+  },
+
+  multiply: {
+    kicker: '02 · Combining superpowers',
+    title: "It's not about removing the devs. It's about multiplying them.",
+    left: { title: 'Devs', items: ['Architecture', 'Code', 'Judging what is safe'] },
+    right: { title: 'Business', items: ['Product', 'Marketing and sales', "The customer's pain"] },
+    result: 'Real product',
+    quote: "If I had your technical experience and my knowledge of the business, I would be unstoppable. I don't want to take the devs out of the equation. I want to raise you to the nth power.",
+    quoteBy: 'Gui',
+    gamesLabel: 'Explain it to me in terms of:',
+    games: [
+      {
+        id: 'cs', tab: 'Counter-Strike', scene: 'de_dust · everyone has an aimbot',
+        title: 'Imagine CS if everyone had an aimbot',
+        question: 'Nobody wins on aim anymore. Everybody hits their shots. Who wins the round?',
+        lose: { title: 'The team that only aims', result: 'round lost', text: 'Aimbot on. No plan. All three run through mid and die in the crossfire.' },
+        win: { title: 'The team that thinks', result: 'round won', text: 'The same aimbot. Plus a plan. Smoke mid, one fakes, two flank.' },
+        score: { lose: ['Aim only', 3], win: ['Strategy', 13], note: 'Illustrative score. Aim is a tie. Strategy breaks it.' },
+        map: [
+          ['Aimbot', 'AI writes the code', 'everyone has it'],
+          ['Aim', 'Typing code', 'no longer the edge'],
+          ['Calls, smokes and reading the map', 'Architecture, product and judgment', 'this is where the round is won'],
+        ],
+        close: 'The downside is real. Landing the hard shot by hand was a rush, and with an aimbot the thrill is gone. But the game is not over. Now the winner is whoever knows the map. And the people who know our map from the inside are you.',
+      },
+      {
+        id: 'lol', tab: 'League of Legends', scene: "Summoner's Rift · everyone is scripting",
+        title: 'Imagine LoL if everyone had scripts',
+        question: 'Everybody lands the combo and the last hit. Who wins the game?',
+        lose: { title: 'The team with mechanics only', result: 'defeat', text: 'Perfect combo. No map awareness. All three chase kills mid. The other team takes Baron.' },
+        win: { title: 'The team that plays macro', result: 'victory', text: 'The same combo. Plus vision. Ward in the river, Dragon, then Baron. No pointless fights.' },
+        score: { lose: ['Mechanics only', 1], win: ['Macro', 9], note: 'Illustrative score. Objectives taken. Mechanics are a tie. Macro breaks it.' },
+        map: [
+          ['Mechanics script', 'AI writes the code', 'everyone has it'],
+          ['Last hit and combo', 'Typing code', 'no longer the edge'],
+          ['Macro, vision and objectives', 'Architecture, product and judgment', 'this is where the game is won'],
+        ],
+        close: 'Winning the lane by hand was a point of pride. With scripts, the lane is a tie. Now the game is won on the map: where to be, what to take and when to fight.',
+      },
+      {
+        id: 'wow', tab: 'World of Warcraft', scene: 'Mythic raid · one-button rotation',
+        title: 'Imagine a raid if everyone had the perfect rotation on one button',
+        question: "Everyone's DPS is the same. Who kills the boss?",
+        lose: { title: 'The raid that only presses buttons', result: 'wipe', text: 'Perfect rotation. Standing in the fire. Nobody studied the fight. A dead DPS does zero damage.' },
+        win: { title: 'The raid that knows the fight', result: 'boss down', text: 'The same rotation. Out of the fire. The raid leader calls, everyone moves and stays alive to the end.' },
+        score: { lose: ['Rotation only', 0], win: ['Knows the fight', 8], note: 'Illustrative score. Bosses killed. DPS is a tie. Knowing the fight breaks it.' },
+        map: [
+          ['One-button rotation', 'AI writes the code', 'everyone has it'],
+          ['DPS on the meter', 'Typing code', 'no longer the edge'],
+          ["Fight mechanics, positioning and the raid leader's calls", 'Architecture, product and judgment', 'this is where the boss dies'],
+        ],
+        close: 'Topping the DPS meter was a point of pride. With the rotation automated, the meter is a tie. What separates one raid from another is who studied the fight.',
+      },
+      {
+        id: 'aoe', tab: 'Age of Empires', scene: 'Arabia 1v1 · automatic micro and build order',
+        title: 'Imagine Age if everyone had perfect micro and build order',
+        question: "No villager stands idle. Everyone's economy is the same. Who wins?",
+        lose: { title: 'The player with APM only', result: 'defeat', text: 'Perfect army. No scouting. Sends the cavalry in blind. There were spearmen on the other side.' },
+        win: { title: 'The player who scouts', result: 'victory', text: 'The same army. With information. Saw the defense, found the back open and came in from behind.' },
+        score: { lose: ['APM only', 2], win: ['Scouting and decisions', 11], note: 'Illustrative score. Games won. Economy is a tie. Decisions break it.' },
+        map: [
+          ['Automatic micro and build order', 'AI writes the code', 'everyone has it'],
+          ['APM', 'Typing code', 'no longer the edge'],
+          ['Scouting, counters and timing', 'Architecture, product and judgment', 'this is where the game is won'],
+        ],
+        close: 'High APM was something to be proud of. With everything automated, APM is a tie. The winner is whoever looks at the map before deciding.',
+      },
+    ],
+    gamesNote: 'The original analogy, the CS one, came from a dev on the team, in the conversation about this manifesto. The other three are variations of it.',
+    punch: 'The fun was never in the typing. It is in solving the problem.',
+  },
+
+  principles: {
+    kicker: 'The principles behind the work',
+    title: '10 principles, with examples',
+    hint: 'Every principle is shown in full. The index on the left takes you straight to this section.',
+    noLabel: 'Not like this',
+    okLabel: 'Like this',
+    exLabel: 'Real example',
+    items: [
+      {
+        title: "The code is the agent's. The judgment is yours.", short: "Code is the agent's",
+        why: "Writing code is the agent's job. Deciding the direction, the architecture and whether it is good is yours.",
+        no: 'The agent got it wrong. You open the editor and fix it by hand.',
+        ok: 'You find out what was missing: context, a rule or a skill. You fix the system and send it again.',
+        ex: "Editing a customer's campaign through our product is just one more endpoint. AI does it in an afternoon. But what if someone breaks into the customer's account? Which permission, which limit? That question is yours.",
+      },
+      {
+        title: 'Ask big. Then let the agent work.', short: 'Ask big',
+        why: "The agent delivers in proportion to the size of the problem it gets. Every stop in the middle can let the cache go cold: picking up again costs more. The agent does many things at once, and you do one. Don't watch: fire off the next one.",
+        no: '"Make the button." "Now change the button." "Now the next one."',
+        ok: 'Plan finalized. Then: "Implement everything, test it, open the PR and call me when it scores 5/5."',
+        note: 'Out of 10 reviews in the middle, only 1 or 2 change anything.',
+      },
+      {
+        title: 'Human at the ends. Machine in the middle.', short: 'Human at the ends',
+        why: 'You come in where judgment matters: at the start and at the end. In the middle, the automatic brakes are what stop the line.',
+        no: 'You approve every piece to feel in control.',
+        ok: 'CI, tests and the automated reviewer stop the line on their own. You review intent, risk and architecture.',
+        chain: [['Human', 'problem and plan'], ['Agent', 'implements, tests, reviews itself, resolves the bot comments'], ['Human', 'approves']],
+      },
+      {
+        title: 'Fast is not sloppy.', short: 'Fast is not sloppy',
+        why: 'Without direction, AI delivers the average of the internet. Your job is to reject the average. In the product and in the code.',
+        no: '"The AI did it" as an excuse to ship just anything.',
+        ok: 'Fewer files, fewer lines. Iterate until it is beautiful and simple.',
+        note: 'The same result in 26 files or in 6. Which one do you want to maintain a year from now? The "lazy" dev picks the second.',
+      },
+      {
+        title: 'Be demanding with the machine.', short: 'Demanding with the machine',
+        why: 'A strict rule was expensive when a human had to follow it. AI does not get tired and does not complain.',
+        no: 'Loosening the rule because "it is too annoying."',
+        ok: 'Raise the bar. The more demanding the system, the less code you need to read.',
+        tags: ['Cyclomatic complexity below 5', 'High coverage', 'Regression tests', 'A picky reviewer'],
+        note: 'Where the tokens of a heavy user go: 10% to 15% to writing, the rest to verifying (an estimate by Theo, creator of T3 Code, about his own use). The reviewer who comments on everything used to be a joke. Now it is an advantage: the agent does the fixing.',
+      },
+      {
+        title: 'Quality is measured in production.', short: 'Quality in production',
+        why: 'Using a lot of tokens proves nothing. It may just mean you use a lot. AI is there to keep these numbers low. Usage is not a metric. But having limits left over every week is a sign you are asking for too little.',
+        no: '"I used 3 accounts this month" as proof of productivity.',
+        ok: 'Show that regressions fell and that the bug was fixed fast.',
+        tags: ['Regression rate', 'Bugs', 'Rework', 'Time to fix'],
+        note: 'Our finance system has gone almost a year without losing a cent. That is quality.',
+      },
+      {
+        title: 'Speed in inverse proportion to risk.', short: 'Speed vs. risk',
+        why: 'Not everything calls for the same care. Knowing where you are on the scale is part of the job. And going fast requires being able to come back fast.',
+        no: 'Treating telephony like billing. Or billing like telephony.',
+        ok: 'Standard risk: ship fast, behind a flag and with a quick rollback. High risk: read every line.',
+        bars: [['CRM telephony', 18], ['Marketing products', 30], ['Billing', 100]],
+        note: 'Bar length = the care the change calls for.',
+      },
+      {
+        title: 'Every mistake has to become an improvement to the system.', short: 'Mistakes improve the system',
+        why: 'If the agent got it wrong, the problem is in the system more than in the person. No exceptions: every finding becomes a rule.',
+        no: 'Fixing the review comment and moving on.',
+        ok: 'Fixing it and creating the rule that keeps the next agent from repeating it.',
+        tags: ['CLAUDE.md', 'Skill', 'Automated reviewer', 'Check in CI'],
+        note: '27 comments on a PR are not 27 problems. They are 27 improvements to the system.',
+      },
+      {
+        title: 'Owner of and specialist in one area.', short: 'Owner of one area',
+        why: 'A pair or a trio. One domain. From the problem to the result. Without waiting for a ready-made card.',
+        no: '"Hand me the card and I will code it."',
+        ok: '"We need to answer 100% of the leads on WhatsApp in real time." "Leave it with us."',
+        ex: 'A sales tool cost R$60 (about US$12) per user. A dev saw the demo, understood the problem and built ours in a day. The goal: to be the dev who understands sales better than anyone in the world. Or creatives. Or operations.',
+      },
+      {
+        title: "Frugal with the company's money.", short: "Frugal with the company's money",
+        why: "Nobody throws money away. But measure the cost against the company's budget, not your own wallet.",
+        no: 'Blocking the work to save US$200.',
+        ok: 'Ask for the account, the credit or the tool. And show the return.',
+        note: 'Is there a good plan that costs a lot and pays off? The money is there.',
+      },
+    ],
+  },
+
+  workflow: {
+    kicker: '03 · How we build',
+    title: ['Demo first.', 'Hardening after.'],
+    lead: 'Invest real engineering only in what already proved its value.',
+    old: { label: 'The old way', tag: 'quality first', steps: ['Technical refinement', 'Build with quality', 'User sees it'], note: 'You only find out at the end whether it was what the user wanted.' },
+    ours: { label: 'Our way', tag: 'proof first', steps: ['Demo', 'User uses it', 'Hardening only for what proved its value'], note: 'You find out in half a day to two days. If it was not what they wanted, you lost little.' },
+    phases: [
+      { label: 'Phase 1 · Planning', mode: 'Total freedom', steps: ['Problem', 'Intent', 'Grill with docs', 'Demo'] },
+      { label: 'Phase 2 · Hardening', mode: 'Maximum quality', steps: ['Cut and technical plan', 'Build and PR', 'Production'] },
+    ],
+    mapCta: 'See every step and every gate on the map',
+    fastTrack: '**Fast track.** A bug, a small adjustment and tech debt go straight into the build. If the only open question is how to do it, no demo is needed.',
+    cycle: '**The cycle closes.** What you learn in production comes back as a new problem at step 1.',
+    modesTitle: 'Freedom and rigor',
+    modesLead: 'Each phase has a mode. Only security is the same in both.',
+    modesHead: ['', 'Phase 1 · Planning', 'Phase 2 · Hardening'],
+    levels: [['Speed', 5, 2], ['Architecture rigor', 1, 5], ['Code quality', 1, 5], ['Security', 5, 5]],
+    modes: [
+      ['Who leads', 'The area owner (dev and PM)', 'The area owner and the tech lead'],
+      ['Where the code lives', 'Isolated screen, dev, preview or protected experiment', 'PR to main, then general release'],
+      ['Does it go to production?', 'Only as an approved experiment, with a flag and a restricted audience', 'General release after G5'],
+    ],
+    nonNegotiable: '**Non-negotiable even in the demo:** protected data and no secrets in the code. A production experiment needs explicit approval, a feature flag, a restricted audience, safety checks and rollback. General release waits for hardening.',
+    cutTitle: 'The demo is big. The v1 is small.',
+    cutSteps: ['Demo', 'G4 cuts', 'v1', 'Hardening', 'Production'],
+    cutText: 'A real example: the demo of one of our products reached about 200,000 lines, with tests. It works and we already show it. But only the v1 cut from it goes through hardening. The tech lead decides what is reused and what is rewritten.',
+  },
+
+  ask: {
+    kicker: 'How to ask an agent for work',
+    title: 'Two moments',
+    lead: 'People who get a lot out of AI do not have a better model. They split the work better.',
+    small: [
+      { title: 'Small problem', text: 'Send the screenshot and the problem. Let the agent try.' },
+      { title: 'It failed? Then it was hard', text: 'Now planning pays off: intent, grill, demo and hardening.' },
+    ],
+    smallNote: 'Plan in proportion to the problem. The two moments below are for a feature.',
+    moments: [
+      { tag: 'Moment 1 · Together', title: 'Plan with the agent', items: ['Explore hypotheses', 'Ask for 3 alternatives', '"What can go wrong?"', '"Is there a simpler way?"', 'Build the demo'], time: 'Your time goes here' },
+      { tag: 'Moment 2 · Alone', title: 'Tell it to implement and get out of the way', items: ['Demand proof', 'A second review of the diff', 'Sessions in parallel', 'One gate at the end'], time: "The agent's time goes here" },
+    ],
+    no: { label: 'Not like this', lines: ['build this feature', 'spin up an environment for me to test', 'now open the PR', 'follow the PR until it passes'], reply: 'Done.', note: '4 round trips that could have fit in 1 message.' },
+    ok: {
+      label: 'Like this',
+      prompt: 'The final plan is in [plan], with the rules and the demo we validated. Implement everything. Write tests for each rule and for the edge cases. Spin up a test environment and take a screenshot of each state. Try to break what you built. Open the PR with evidence and follow it until it passes. Resolve the findings from the automated reviewer. Only call me when it scores 5/5.',
+      results: ['Frontend and backend implemented', 'Tests and regression suite passing', 'Test environment up, with screenshots', 'Automated reviewer at 5/5. Risk summary attached.'],
+      note: '1 message. The next time you open it, all you do is approve.',
+    },
+    copyLabel: 'Copy the prompt',
+    cache: 'Out of 10 reviews in the middle, only 1 or 2 change anything. The others only hold the agent up. And each stop raises the risk of the cache expiring: picking up again costs more and the agent loses context.',
+    parallelTitle: 'The agent does many things at once. You do one.',
+    parallelLead: "Don't watch the agent work. Fire off the next task.",
+    watch: { title: 'You watch', states: ['you watching', 'in line', 'in line', 'in line', 'in line'], note: 'One task at a time. The bottleneck is you.' },
+    fire: { title: 'You fire them off and come back', states: ['done', 'working', 'needs you', 'working', 'working'], note: 'Five at once. You only look at the green and the yellow.' },
+    taskLabel: 'Task',
+  },
+
+  risk: {
+    kicker: 'Speed in inverse proportion to risk',
+    title: 'Risk sets the rigor',
+    scale: ['CRM telephony', 'Creative studio', 'Marketing dashboard', 'Billing'],
+    ends: ['Ship fast', 'Read every line'],
+    low: { title: 'If it breaks, we fix it this afternoon', text: 'Trust the automatic brakes. Use a feature flag. Ship several times a week.' },
+    high: { title: 'If it fails, the money does not come in', text: 'Detailed human review. Careful deploy. That is why finance works.' },
+    before: { tag: 'Before the merge', title: 'Verification', text: 'Tests, bots and evidence. The PR arrives in good shape.' },
+    after: { tag: 'After the merge', title: 'Fast rollback', text: 'Flag or revert. A mistake costs little.' },
+    close: 'Going fast requires being able to come back fast. If undoing a bad change takes a long time, that area cannot go fast yet.',
+  },
+
+  governance: {
+    kicker: 'Governance',
+    title: ['Total freedom to build.', 'Zero freedom to skip a gate.'],
+    items: [
+      ['You build it, you run it', 'You answer for what you ship. Nobody audits whether it was a human or a machine.'],
+      ['There is always a number two', 'No area depends on a single person.'],
+      ['The tech lead leads the architecture', 'A structural change goes through the tech lead.'],
+      ['Gates are not negotiable', 'CI, automated reviewer, tests, review. No agent approves its own code.'],
+      ['Everything is traceable', 'Issue, PR and git show who asked, what was done and who approved.'],
+      ['Security is non-negotiable', 'Authentication, permissions, customer data and data protection law (LGPD in Brazil). At any level of risk.'],
+    ],
+  },
+
+  practice: {
+    kicker: 'In practice',
+    title: 'Instead of… do',
+    head: ['Instead of', 'Do'],
+    rows: [
+      ['Waiting for a ready-made card', 'Bring the problem and a proposal'],
+      ['Building with quality what nobody validated', 'Prove it with a demo first'],
+      ['Releasing the demo to everyone without hardening', 'Validate with controlled exposure, cut the v1 and prepare for general release'],
+      ['Approving every step the agent takes', 'Give it the whole problem and review at the end'],
+      ['Watching the agent work', 'Fire off the next task and come back at the end'],
+      ['Accepting the first output', 'Demand alternatives, criticism and proof'],
+      ['Reviewing line by line what the bot already reviewed', 'Review intent, risk and architecture'],
+      ['Commenting and leaving the PR parked', 'Pick up the PR and finish it'],
+      ['Fixing the same mistake for the third time', 'Turn the finding into a rule'],
+      ['Being the only person who knows something', 'Make sure there is a number two'],
+      ['Thinking the product is just the backlog', 'Talk to a customer every week'],
+      ['Using AI to think less', 'Use AI to go faster'],
+    ],
+  },
+
+  closing: {
+    kicker: 'In one line',
+    bad: 'Dev replaced by AI',
+    good: 'Dev + AI = greater reach',
+    line: 'We want to expand each person’s impact.',
+    living: 'A living document. Everything can change. The commitment does not: building together, with transparency.',
+  },
+
+  vision,
+  essay,
+
+  // The full first-person story lives in the signed essay.
+  author: {
+    title: 'Signed by',
+    name: 'Guilherme Lippert',
+    role: 'CPTO of V4 Company',
+    story: [],
+    cta: 'Disagree with something? Open an issue.',
+  },
+};

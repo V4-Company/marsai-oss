@@ -1,0 +1,20 @@
+{
+  "name": "marsai-core",
+  "displayName": "MarsAI Core",
+  "description": "The base of MarsAI, shared by everyone: marsai-mode (the single way into any work), the map of the flow, the team's Home Repo (home-repo), the grill that records the glossary and the decisions, wayfinder, handoff to another agent, retro, conventional commits and pull requests with evidence and merge danger, and the guard hook for commits and pull requests.",
+  "version": "5.8.0",
+  "author": {
+    "name": "V4 Company"
+  },
+  "homepage": "https://github.com/V4-Company/marsai-oss",
+  "repository": "https://github.com/V4-Company/marsai-oss",
+  "license": "Apache-2.0",
+  "keywords": [
+    "flow",
+    "grill",
+    "handoff",
+    "retro",
+    "conventional-commits",
+    "pull-requests"
+  ]
+}

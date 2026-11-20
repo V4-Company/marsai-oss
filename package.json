@@ -1,0 +1,50 @@
+{
+  "name": "@v4company/marsai",
+  "version": "5.8.0",
+  "description": "MarsAI, the development workflow V4 Company uses to build with AI agents: guided installer for Claude Code, Codex, Cursor and OpenCode.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V4-Company/marsai-oss.git"
+  },
+  "homepage": "https://github.com/V4-Company/marsai-oss#readme",
+  "bugs": "https://github.com/V4-Company/marsai-oss/issues",
+  "keywords": [
+    "marsai",
+    "v4",
+    "claude-code",
+    "codex",
+    "opencode",
+    "skills",
+    "agents",
+    "workflow",
+    "installer"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "marsai": "cli/bin/marsai.js"
+  },
+  "files": [
+    "cli",
+    "plugins",
+    ".claude-plugin",
+    "docs",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "scripts": {
+    "test": "node --test cli/test/*.test.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "jsonc-parser": "^3.3.1"
+  }
+}

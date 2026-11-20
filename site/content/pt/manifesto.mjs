@@ -1,0 +1,316 @@
+// The manifesto: why the flow is the way it is. Same inline markup as skills.mjs.
+//
+// This is the public edition. Internal financial figures stay out of it.
+import { vision } from './manifesto-vision.mjs';
+import { essay } from './manifesto-essay.mjs';
+
+export const manifesto = {
+  hero: {
+    eyebrow: 'Manifesto de tecnologia e produto',
+    title: ['A IA escreve o código.', 'Você julga.'],
+    byline: 'Guilherme Lippert, CPTO da V4 Company · outubro de 2026',
+    shift: [
+      { label: 'Custo de execução', value: 'caiu', dir: 'down' },
+      { label: 'Custo de julgamento', value: 'igual', dir: 'same' },
+    ],
+    lead: 'Escrever código ficou barato. Decidir o que construir e garantir que ficou bom continua caro. É aí que a gente quer você.',
+  },
+
+  sections: essay.chapters.flatMap(({ id, nav }, i) => [
+    { id, label: nav },
+    ...(i === 0 ? [{ id: 'principles', label: '10 princípios' }] : []),
+  ]),
+
+  thesis: {
+    kicker: '01 · A tese',
+    title: 'O gargalo mudou de lugar',
+    lead: 'A parte estreita do cano não é mais o código.',
+    stages: ['Saber o que construir', 'Escrever código', 'Garantir que ficou bom'],
+    before: { label: 'Antes', narrow: [1] },
+    now: { label: 'Agora', narrow: [0, 2], note: 'o agente faz' },
+    narrowTag: 'gargalo',
+    motto: 'Não terceirize o pensar. Escale o pensar.',
+    cards: [
+      { tag: 'Terceirizar', title: '"A IA já pensou por mim."', text: 'Você aceita a resposta sem julgar. É o maior risco que a gente tem.', tone: 'bad' },
+      { tag: 'Escalar', title: 'Leve o problema cedo ao agente', text: 'Dê o problema, não a solução. Se ele resolver, você poupou a cabeça. Se falhar, é ali que vale pensar.', tone: 'good' },
+    ],
+  },
+
+  multiply: {
+    kicker: '02 · Somar superpoderes',
+    title: 'Não é tirar os devs. É multiplicar os devs.',
+    left: { title: 'Devs', items: ['Arquitetura', 'Código', 'Julgar o que é seguro'] },
+    right: { title: 'Negócio', items: ['Produto', 'Marketing e vendas', 'Dor do cliente'] },
+    result: 'Produto de verdade',
+    quote: 'Se eu tivesse a experiência técnica de vocês e o meu conhecimento de negócio, eu seria imparável. Eu não quero tirar os devs da equação. Quero potencializar vocês à enésima potência.',
+    quoteBy: 'Gui',
+    gamesLabel: 'Me explique em termos de:',
+    games: [
+      {
+        id: 'cs', tab: 'Counter-Strike', scene: 'de_dust · todo mundo de aimbot',
+        title: 'Imagine o CS se todo mundo tivesse aimbot',
+        question: 'Ninguém mais ganha no tiro. Todo mundo acerta. Quem ganha o round?',
+        lose: { title: 'Time que só mira', result: 'round perdido', text: 'Aimbot ligado. Plano nenhum. Os três correm pelo meio e caem no fogo cruzado.' },
+        win: { title: 'Time que pensa', result: 'round ganho', text: 'O mesmo aimbot. Mais um plano. Smoke no meio, um finge, dois flanqueiam.' },
+        score: { lose: ['Só mira', 3], win: ['Estratégia', 13], note: 'Placar ilustrativo. A mira empata. A estratégia desempata.' },
+        map: [
+          ['Aimbot', 'A IA escreve o código', 'todo mundo tem'],
+          ['Mira', 'Digitar código', 'deixou de ser o diferencial'],
+          ['Call, smoke e leitura do mapa', 'Arquitetura, produto e julgamento', 'é aqui que se ganha o round'],
+        ],
+        close: 'O lado difícil é real. Acertar o tiro difícil na mão dava adrenalina, e com aimbot perde a graça. Mas o jogo não acabou. Agora ganha quem conhece o mapa. E quem conhece o nosso mapa por dentro são vocês.',
+      },
+      {
+        id: 'lol', tab: 'League of Legends', scene: "Summoner's Rift · todo mundo de script",
+        title: 'Imagine o LoL se todo mundo tivesse script',
+        question: 'Todo mundo acerta o combo e o last hit. Quem ganha a partida?',
+        lose: { title: 'Time que só tem mecânica', result: 'derrota', text: 'Combo perfeito. Mapa nenhum. Os três correm atrás de abate no mid. O outro time faz o Barão.' },
+        win: { title: 'Time que joga macro', result: 'vitória', text: 'O mesmo combo. Mais visão. Ward no rio, Dragão, depois Barão. Sem briga à toa.' },
+        score: { lose: ['Só mecânica', 1], win: ['Macro', 9], note: 'Placar ilustrativo. Objetivos conquistados. A mecânica empata. O macro desempata.' },
+        map: [
+          ['Script de mecânica', 'A IA escreve o código', 'todo mundo tem'],
+          ['Last hit e combo', 'Digitar código', 'deixou de ser o diferencial'],
+          ['Macro, visão e objetivos', 'Arquitetura, produto e julgamento', 'é aqui que se ganha a partida'],
+        ],
+        close: 'Ganhar a lane na mão dava orgulho. Com script, a lane empata. A partida agora se ganha no mapa: onde estar, o que pegar e quando brigar.',
+      },
+      {
+        id: 'wow', tab: 'World of Warcraft', scene: 'Raid mítica · rotação em um botão',
+        title: 'Imagine uma raid se todo mundo tivesse a rotação perfeita em um botão',
+        question: 'O DPS de todo mundo é igual. Quem mata o boss?',
+        lose: { title: 'Raid que só aperta botão', result: 'wipe', text: 'Rotação perfeita. Parado no fogo. Ninguém estudou a luta. DPS morto dá zero de dano.' },
+        win: { title: 'Raid que conhece a luta', result: 'boss morto', text: 'A mesma rotação. Fora do fogo. O raid leader chama, todo mundo se move e fica vivo até o fim.' },
+        score: { lose: ['Só rotação', 0], win: ['Conhece a luta', 8], note: 'Placar ilustrativo. Bosses mortos. O DPS empata. Conhecer a luta desempata.' },
+        map: [
+          ['Rotação em um botão', 'A IA escreve o código', 'todo mundo tem'],
+          ['DPS no medidor', 'Digitar código', 'deixou de ser o diferencial'],
+          ['Mecânica da luta, posição e call do raid leader', 'Arquitetura, produto e julgamento', 'é aqui que o boss morre'],
+        ],
+        close: 'Ser o primeiro do medidor de DPS dava orgulho. Com a rotação automática, o medidor empata. O que separa uma raid da outra é quem estudou a luta.',
+      },
+      {
+        id: 'aoe', tab: 'Age of Empires', scene: 'Arábia 1v1 · micro e build order automáticos',
+        title: 'Imagine o Age se todo mundo tivesse micro e build order perfeitos',
+        question: 'Nenhum aldeão fica parado. A economia de todo mundo é igual. Quem ganha?',
+        lose: { title: 'Jogador que só tem APM', result: 'derrota', text: 'Exército perfeito. Sem scout. Manda a cavalaria no escuro. Do outro lado tinha lanceiro.' },
+        win: { title: 'Jogador que faz scout', result: 'vitória', text: 'O mesmo exército. Com informação. Viu a defesa, achou o fundo aberto e entrou por trás.' },
+        score: { lose: ['Só APM', 2], win: ['Scout e decisão', 11], note: 'Placar ilustrativo. Partidas ganhas. A economia empata. A decisão desempata.' },
+        map: [
+          ['Micro e build order automáticos', 'A IA escreve o código', 'todo mundo tem'],
+          ['APM', 'Digitar código', 'deixou de ser o diferencial'],
+          ['Scout, counter e timing', 'Arquitetura, produto e julgamento', 'é aqui que se ganha a partida'],
+        ],
+        close: 'APM alto era motivo de orgulho. Com tudo automático, o APM empata. Ganha quem olha o mapa antes de decidir.',
+      },
+    ],
+    gamesNote: 'A analogia original, a do CS, veio de um dev do time, na conversa sobre este manifesto. As outras três são variações dela.',
+    punch: 'A diversão nunca esteve em digitar. Está em resolver o problema.',
+  },
+
+  principles: {
+    kicker: 'Os princípios que guiam o trabalho',
+    title: '10 princípios, com exemplo',
+    hint: 'Todos os princípios estão abertos para leitura. O índice à esquerda leva direto a esta seção.',
+    noLabel: 'Assim não',
+    okLabel: 'Assim sim',
+    exLabel: 'Exemplo real',
+    items: [
+      {
+        title: 'O código é do agente. O julgamento é seu.', short: 'Código é do agente',
+        why: 'Escrever código é trabalho do agente. Decidir a direção, a arquitetura e se está bom é trabalho seu.',
+        no: 'O agente errou. Você abre o editor e corrige no teclado.',
+        ok: 'Você descobre o que faltou: contexto, regra ou skill. Corrige o sistema e manda de novo.',
+        ex: 'Editar a campanha de um cliente pelo nosso produto é só mais um endpoint. A IA faz numa tarde. Mas e se alguém invadir a conta do cliente? Qual permissão, qual limite? Essa pergunta é sua.',
+      },
+      {
+        title: 'Peça grande. Depois, deixe o agente trabalhar.', short: 'Peça grande',
+        why: 'O agente rende conforme o tamanho do problema que recebe. Cada parada no meio pode esfriar o cache: retomar custa mais. O agente faz várias coisas ao mesmo tempo, e você faz uma. Não assista: dispare a próxima.',
+        no: '"Faz o botão." "Agora muda o botão." "Agora o próximo."',
+        ok: 'Plano fechado. Depois: "Implemente tudo, teste, abra a PR e me chame com 5/5."',
+        note: 'De 10 revisões no meio, só 1 ou 2 mudam alguma coisa.',
+      },
+      {
+        title: 'Humano nas pontas. Máquina no meio.', short: 'Humano nas pontas',
+        why: 'Você entra onde o julgamento importa: no começo e no fim. No meio, quem para a linha são os freios automáticos.',
+        no: 'Você aprova cada pedaço para ter a sensação de controle.',
+        ok: 'CI, testes e o revisor automático param a linha sozinhos. Você revisa intenção, risco e arquitetura.',
+        chain: [['Humano', 'problema e plano'], ['Agente', 'implementa, testa, se revisa, resolve os bots'], ['Humano', 'aprova']],
+      },
+      {
+        title: 'Rápido não é porco.', short: 'Rápido não é porco',
+        why: 'Sem direção, a IA entrega a média da internet. Seu trabalho é rejeitar a média. No produto e no código.',
+        no: '"Foi a IA que fez" como desculpa para subir qualquer coisa.',
+        ok: 'Menos arquivos, menos linhas. Itere até ficar bonito e simples.',
+        note: 'O mesmo resultado em 26 arquivos ou em 6. Qual dos dois você quer manter daqui a um ano? O dev "preguiçoso" escolhe o segundo.',
+      },
+      {
+        title: 'Seja exigente com a máquina.', short: 'Exigente com a máquina',
+        why: 'Regra rígida era cara quando um humano precisava cumprir. A IA não cansa e não reclama.',
+        no: 'Afrouxar a regra porque "é chato demais".',
+        ok: 'Subir a régua. Quanto mais exigente o sistema, menos código você precisa ler.',
+        tags: ['Complexidade ciclomática abaixo de 5', 'Cobertura alta', 'Teste de regressão', 'Revisor chato'],
+        note: 'Para onde vão os tokens de quem usa muito: de 10% a 15% para escrever, o resto para verificar (estimativa do Theo, criador do T3 Code, sobre o próprio uso). Revisor que comenta tudo era piada. Agora é vantagem: quem corrige é o agente.',
+      },
+      {
+        title: 'Qualidade se mede em produção.', short: 'Qualidade em produção',
+        why: 'Usar muito token não prova nada. Pode ser só que você usa muito. A IA serve para manter estes números baixos. Uso não vira indicador. Mas limite sobrando toda semana é sinal de que você pede pouco.',
+        no: '"Usei 3 contas neste mês" como prova de produtividade.',
+        ok: 'Mostrar que a regressão caiu e que o bug foi corrigido rápido.',
+        tags: ['Taxa de regressão', 'Bugs', 'Retrabalho', 'Tempo de correção'],
+        note: 'Nosso sistema financeiro está há quase um ano sem sumir um centavo. Isso é qualidade.',
+      },
+      {
+        title: 'Velocidade inversa ao risco.', short: 'Velocidade x risco',
+        why: 'Nem tudo pede o mesmo cuidado. Saber em que ponto da régua você está é parte do trabalho. E ir rápido exige conseguir voltar rápido.',
+        no: 'Tratar a telefonia como cobrança. Ou a cobrança como telefonia.',
+        ok: 'Risco padrão: entregue rápido, com flag e reversão rápida. Alto risco: leia cada linha.',
+        bars: [['Telefonia do CRM', 18], ['Produtos de marketing', 30], ['Cobrança', 100]],
+        note: 'Tamanho da barra = cuidado que a mudança pede.',
+      },
+      {
+        title: 'Todo erro precisa virar melhoria no sistema.', short: 'Erro vira sistema',
+        why: 'Se o agente errou, o problema está mais no sistema do que na pessoa. Sem exceção: todo finding vira uma regra.',
+        no: 'Corrigir o comentário do review e seguir a vida.',
+        ok: 'Corrigir e criar a regra que impede o próximo agente de repetir.',
+        tags: ['CLAUDE.md', 'Skill', 'Revisor automático', 'Check no CI'],
+        note: '27 comentários numa PR não são 27 problemas. São 27 melhorias no sistema.',
+      },
+      {
+        title: 'Dono e especialista de uma frente.', short: 'Dono de uma frente',
+        why: 'Uma dupla ou um trio. Um domínio. Do problema ao resultado. Sem esperar o card chegar pronto.',
+        no: '"Me passa o card que eu codo."',
+        ok: '"Precisamos atender 100% dos leads no WhatsApp em tempo real." "Deixa com a gente."',
+        ex: 'Uma ferramenta de vendas custava R$60 por usuário. Um dev viu a demo, entendeu o problema e construiu a nossa em um dia. A meta: ser o dev que mais entende de vendas no mundo. Ou de criativos. Ou de operação.',
+      },
+      {
+        title: 'Frugal com o bolso da empresa.', short: 'Frugal com o bolso da empresa',
+        why: 'Ninguém joga dinheiro fora. Mas meça o custo com o bolso da empresa, não com o seu.',
+        no: 'Travar o trabalho para economizar US$200.',
+        ok: 'Pedir a conta, o crédito ou a ferramenta. E mostrar o retorno.',
+        note: 'Tem um plano bom que custa caro e dá retorno? Tem dinheiro.',
+      },
+    ],
+  },
+
+  workflow: {
+    kicker: '03 · Como construímos',
+    title: ['Primeiro a demo.', 'Depois o hardening.'],
+    lead: 'Só invista engenharia de verdade no que já provou valor.',
+    old: { label: 'Jeito antigo', tag: 'qualidade primeiro', steps: ['Refinamento técnico', 'Build com qualidade', 'Usuário vê'], note: 'Você só descobre no fim se era isso que o usuário queria.' },
+    ours: { label: 'Nosso jeito', tag: 'prova primeiro', steps: ['Demo', 'Usuário usa', 'Hardening só do que provou valor'], note: 'Você descobre em 0,5 a 2 dias. Se não era isso, perdeu pouco.' },
+    phases: [
+      { label: 'Fase 1 · Planejamento', mode: 'Liberdade total', steps: ['Problema', 'Intent', 'Grill with docs', 'Demo'] },
+      { label: 'Fase 2 · Hardening', mode: 'Qualidade máxima', steps: ['Corte e plano técnico', 'Build e PR', 'Produção'] },
+    ],
+    mapCta: 'Ver cada passo e cada gate no mapa',
+    fastTrack: '**Fast track.** Bug, ajuste pequeno e débito técnico entram direto no build. Se a dúvida é só como fazer, não precisa de demo.',
+    cycle: '**O ciclo fecha.** O que você aprende em produção volta como novo problema no passo 1.',
+    modesTitle: 'Liberdade e rigor',
+    modesLead: 'Cada fase tem um modo. Só a segurança é igual nas duas.',
+    modesHead: ['', 'Fase 1 · Planejamento', 'Fase 2 · Hardening'],
+    levels: [['Velocidade', 5, 2], ['Rigor de arquitetura', 1, 5], ['Qualidade do código', 1, 5], ['Segurança', 5, 5]],
+    modes: [
+      ['Quem lidera', 'Dono da frente (dev e PM)', 'Dono da frente e TL'],
+      ['Onde o código fica', 'Tela isolada, dev, preview ou experimento protegido', 'PR na main, depois liberação geral'],
+      ['Vai para produção?', 'Só como experimento aprovado, com flag e público restrito', 'Liberação geral depois do G5'],
+    ],
+    nonNegotiable: '**Inegociável mesmo na demo:** dados protegidos e nenhum segredo no código. Um experimento em produção exige aprovação explícita, feature flag, público restrito, checks de segurança e rollback. A liberação geral espera o hardening.',
+    cutTitle: 'A demo é grande. A v1 é pequena.',
+    cutSteps: ['Demo', 'G4 corta', 'v1', 'Hardening', 'Produção'],
+    cutText: 'Exemplo real: a demo de um dos nossos produtos chegou a cerca de 200 mil linhas, com testes. Ela funciona e a gente já mostra. Mas só a v1 cortada passa pelo hardening. O TL decide o que reaproveita e o que reescreve.',
+  },
+
+  ask: {
+    kicker: 'Como pedir trabalho ao agente',
+    title: 'Dois momentos',
+    lead: 'Quem tira muito da IA não tem um modelo melhor. Divide o trabalho melhor.',
+    small: [
+      { title: 'Problema pequeno', text: 'Mande o print e o problema. Deixe o agente tentar.' },
+      { title: 'Falhou? Então era difícil', text: 'Aí vale planejar: intent, grill, demo e hardening.' },
+    ],
+    smallNote: 'Planeje na proporção do problema. Os dois momentos abaixo são para feature.',
+    moments: [
+      { tag: 'Momento 1 · Junto', title: 'Planeje com o agente', items: ['Abra hipóteses', 'Peça 3 alternativas', '"O que pode dar errado?"', '"Tem jeito mais simples?"', 'Construa a demo'], time: 'Seu tempo aqui' },
+      { tag: 'Momento 2 · Sozinho', title: 'Mande implementar e saia da frente', items: ['Exija prova', 'Segunda revisão do diff', 'Sessões em paralelo', 'Um gate no fim'], time: 'O tempo do agente aqui' },
+    ],
+    no: { label: 'Assim não', lines: ['constrói essa feature', 'sobe um ambiente pra eu testar', 'agora abre a PR', 'acompanha a PR até passar'], reply: 'Pronto.', note: '4 idas e voltas que cabiam em 1 mensagem.' },
+    ok: {
+      label: 'Assim sim',
+      prompt: 'O plano está fechado em [plano], com as regras e a demo que validamos. Implemente tudo. Escreva testes para cada regra e para os casos de borda. Suba um ambiente de teste e tire screenshot de cada estado. Tente quebrar o que você fez. Abra a PR com evidência e acompanhe até passar. Resolva os achados do revisor automático. Só me chame com nota 5/5.',
+      results: ['Front e back implementados', 'Testes e regressão passando', 'Ambiente de teste no ar, com screenshots', 'Revisor automático em 5/5. Resumo de risco anexado.'],
+      note: '1 mensagem. Na próxima vez que você abrir, é só aprovar.',
+    },
+    copyLabel: 'Copiar o pedido',
+    cache: 'De 10 revisões no meio, só 1 ou 2 mudam alguma coisa. As outras só travam o agente. E cada parada aumenta o risco de o cache expirar: retomar custa mais e o agente perde contexto.',
+    parallelTitle: 'O agente faz várias coisas ao mesmo tempo. Você faz uma.',
+    parallelLead: 'Não assista o agente trabalhar. Dispare a próxima tarefa.',
+    watch: { title: 'Você assiste', states: ['você olhando', 'na fila', 'na fila', 'na fila', 'na fila'], note: 'Uma tarefa por vez. O gargalo é você.' },
+    fire: { title: 'Você dispara e volta', states: ['pronto', 'trabalhando', 'precisa de você', 'trabalhando', 'trabalhando'], note: 'Cinco de uma vez. Você só olha o verde e o amarelo.' },
+    taskLabel: 'Tarefa',
+  },
+
+  risk: {
+    kicker: 'Velocidade inversa ao risco',
+    title: 'O risco define o rigor',
+    scale: ['Telefonia do CRM', 'Estúdio de criativos', 'Painel de marketing', 'Cobrança'],
+    ends: ['Entregue rápido', 'Leia cada linha'],
+    low: { title: 'Se bugar, a gente corrige à tarde', text: 'Confie nos freios automáticos. Use feature flag. Entregue várias vezes por semana.' },
+    high: { title: 'Se falhar, o dinheiro não entra', text: 'Review humano detalhado. Deploy com cuidado. É por isso que o financeiro funciona.' },
+    before: { tag: 'Antes do merge', title: 'Verificação', text: 'Testes, bots e evidência. A PR chega boa.' },
+    after: { tag: 'Depois do merge', title: 'Reversão rápida', text: 'Flag ou revert. Um erro custa pouco.' },
+    close: 'Ir rápido exige conseguir voltar rápido. Se desfazer uma mudança ruim demora, aquela frente ainda não pode ir rápido.',
+  },
+
+  governance: {
+    kicker: 'Governança',
+    title: ['Liberdade total para construir.', 'Zero liberdade para pular gate.'],
+    items: [
+      ['Quem constrói sustenta', 'Você responde pelo que sobe. Ninguém audita se foi humano ou máquina.'],
+      ['Sempre existe um número 2', 'Nenhuma frente depende de uma pessoa só.'],
+      ['O TL lidera a arquitetura', 'Mudança estrutural passa pelo TL.'],
+      ['Gates não se negociam', 'CI, revisor automático, testes, review. Nenhum agente aprova o próprio código.'],
+      ['Tudo é rastreável', 'Issue, PR e git mostram quem pediu, o que foi feito e quem aprovou.'],
+      ['Segurança é inegociável', 'Autenticação, permissão, dado de cliente e LGPD. Em qualquer risco.'],
+    ],
+  },
+
+  practice: {
+    kicker: 'Na prática',
+    title: 'Em vez de… faça',
+    head: ['Em vez de', 'Faça'],
+    rows: [
+      ['Esperar o card chegar pronto', 'Traga o problema e uma proposta'],
+      ['Construir com qualidade o que ninguém validou', 'Prove com uma demo antes'],
+      ['Liberar a demo para todo mundo sem hardening', 'Valide com exposição controlada, corte a v1 e prepare a liberação geral'],
+      ['Aprovar cada passo do agente', 'Dê o problema inteiro e revise no fim'],
+      ['Ficar assistindo o agente trabalhar', 'Dispare a próxima tarefa e volte no fim'],
+      ['Aceitar o primeiro output', 'Exija alternativas, crítica e prova'],
+      ['Revisar linha por linha o que o bot já revisou', 'Revise intenção, risco e arquitetura'],
+      ['Comentar e deixar a PR parada', 'Pegue a PR e conclua'],
+      ['Corrigir o mesmo erro pela terceira vez', 'Transforme o finding em regra'],
+      ['Ser a única pessoa que sabe algo', 'Garanta um número 2'],
+      ['Achar que o produto é só o backlog', 'Fale com cliente toda semana'],
+      ['Usar IA para pensar menos', 'Use IA para ir mais rápido'],
+    ],
+  },
+
+  closing: {
+    kicker: 'Em uma linha',
+    bad: 'Dev trocado por IA',
+    good: 'Dev + IA = mais alcance',
+    line: 'Queremos ampliar o impacto de cada pessoa.',
+    living: 'Documento vivo. Tudo pode mudar. O compromisso não muda: construir junto, com transparência.',
+  },
+
+  vision,
+  essay,
+
+  // The full first-person story lives in the signed essay.
+  author: {
+    title: 'Quem assina',
+    name: 'Guilherme Lippert',
+    role: 'CPTO da V4 Company',
+    story: [],
+    cta: 'Discordou de algo? Abra uma issue.',
+  },
+};

@@ -1,0 +1,10 @@
+{
+  "name": "marsai-extras",
+  "version": "5.8.0",
+  "description": "Optional skills from Matt Pocock, Cathryn Lavery, Lauren Tan and Theo Browne: learning, research, interviews, restating the goal, writing for agents, editorial diagrams, and taking a pull request to the end without the person watching.",
+  "author": {
+    "name": "V4 Company"
+  },
+  "repository": "https://github.com/V4-Company/marsai-oss",
+  "license": "MIT"
+}

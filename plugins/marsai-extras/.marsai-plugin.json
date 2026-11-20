@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "targets": [
+    "claude",
+    "codex",
+    "cursor",
+    "opencode"
+  ],
+  "optional": true,
+  "group": {
+    "id": "extras",
+    "label": {
+      "en": "Optional extras",
+      "pt-BR": "Extras opcionais"
+    },
+    "description": {
+      "en": "Optional learning, research, interviews, agent writing and diagram skills from Matt Pocock and Cathryn Lavery",
+      "pt-BR": "Skills opcionais de Matt Pocock e Cathryn Lavery para aprender, pesquisar, pensar, escrever e desenhar"
+    }
+  }
+}

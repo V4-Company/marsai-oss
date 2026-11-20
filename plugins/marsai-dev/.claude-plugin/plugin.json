@@ -1,0 +1,28 @@
+{
+  "name": "marsai-dev",
+  "displayName": "MarsAI Dev",
+  "description": "The code flow of MarsAI: demo before hardening, spec and vertical slices in the tracker, implementation with TDD by implementer agents, and a code review that applies the Standards and fixes the diff. Any work starts at /marsai-core:marsai-mode.",
+  "version": "5.8.0",
+  "author": {
+    "name": "V4 Company"
+  },
+  "homepage": "https://github.com/V4-Company/marsai-oss",
+  "repository": "https://github.com/V4-Company/marsai-oss",
+  "license": "Apache-2.0",
+  "keywords": [
+    "typescript",
+    "backend",
+    "frontend",
+    "react",
+    "nextjs",
+    "tdd",
+    "code-review",
+    "demo",
+    "prototype",
+    "spec",
+    "linear"
+  ],
+  "dependencies": [
+    "marsai-core"
+  ]
+}
